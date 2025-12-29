@@ -1,0 +1,433 @@
+FOR PUBLICATION
+UNITED STATES COURT OF APPEALS
+FOR THE NINTH CIRCUIT
+POGHOS KAZARIAN, ü
+Plaintiff-Appellant, No. 07-56774
+v. D.C. No.
+US CITIZENSHIP AND IMMIGRATION ý CV-07-03522-R-E
+SERVICES, a Bureau of the ORDER AND Department of Homeland Security; OPINION JOHN DOES, 1 through 10,
+Defendants-Appellees. þ
+Appeal from the United States District Court
+for the Central District of California
+Manuel L. Real, District Judge, Presiding
+Argued and Submitted
+December 9, 2008—Pasadena, California
+Filed March 4, 2010
+Before: Harry Pregerson, Dorothy W. Nelson and
+David R. Thompson, Circuit Judges.
+Opinion by Judge D.W. Nelson;
+Concurrence by Judge Pregerson
+3429
+COUNSEL
+Ruben N. Sarkisian, Glendale, California, for plaintiffappellant
+Poghos Kazarian.
+Craig W. Kuhn and Elizabeth J. Stevens, Office of Immigration
+Litigation, Department of Justice, Washington, D.C.; for
+defendant-appellee U.S. Citizenship & Immigration Services.
+ORDER
+The opinion with dissent filed on September 4, 2009, and
+published at 580 F.3d 1030 (9th Cir. 2009), is withdrawn and
+superceded by the opinion filed concurrently herewith.
+With the filing of the new opinion, appellant’s pending
+petition for rehearing/petition for rehearing en banc is
+DENIED as moot, without prejudice to refiling a subsequent
+petition for rehearing and/or petition for rehearing en banc.
+See 9th Cir. G.O. 5.3(a).
+3432 KAZARIAN v. USCIS
+OPINION
+D.W. NELSON, Senior Circuit Judge:
+Poghos Kazarian appeals the District Court’s grant of summary
+judgment to the United States Citizenship and Immigration
+Service (“USCIS”), finding that the USCIS’s denial of an
+“extraordinary ability” visa was not arbitrary, capricious, or
+contrary to law. We have jurisdiction pursuant to 28 U.S.C.
+§ 1291, and we affirm.
+FACTUAL AND PROCEDURAL BACKGROUND
+On December 31, 2003, Poghos Kazarian, a thirty-fouryear-
+old native and citizen of Armenia, filed an application
+for an employment-based immigrant visa for “aliens of
+extraordinary ability” (Form I-140) contending that he was an
+alien with extraordinary ability as a theoretical physicist.
+Kazarian received a Ph.D in Theoretical Physics from
+Yerevan State University (“YSU”) in Yerevan, Armenia, in
+1997. From 1997 to 2000, he remained at YSU as a Research
+Associate, where, among other things, he “reviewe[d] [the]
+diploma works of the Department’s graduates.”
+At YSU, Kazarian specialized in non-Einsteinian theories
+of gravitation. According to a colleague, “[t]his work offered
+a mechanism for the control of solutions’ accuracy, which
+guarantees the accuracy of calculations in many theories of
+gravitation.” Kazarian “solve[d] [the] more than 20 year[ ] old
+problem of construction of the theory, satisfying the cosmogony
+conception of worldwide acknowledged scientist, academician
+V.A. Hambartsumian.”
+Since 2000, Kazarian has served as a Physics / Math / Programming
+Tutor, an Adjunct Physics and Mathematics
+Instructor, and a Science Lecture Series speaker at Glendale
+KAZARIAN v. USCIS 3433
+Community College (“GCC”). Between 2000 and 2004,
+Kazarian’s work at GCC was on a volunteer basis.
+In support of his application, Kazarian submitted several
+letters of reference. The first reference was a letter from Dr.
+Kip S. Thorne, the Feynman Professor of Theoretical Physics
+at California’s Institute of Technology. Dr. Thorne, who
+worked in the same research group as Kazarian, stated that he
+had “formed a good opinion of Dr. Kazarian’s research. It is
+of the caliber that one would expect from a young professor
+at a strong research-oriented university in the United States.”
+Kazarian also provided letters from professors at YSU, stating
+that Kazarian “possesse[d] great ability and considerable
+potency in science,” was “a young scientist with enough scientific
+potential,” had “high professionalism,” and had “displayed
+himself as exceptionally diligent, hard-working, [and]
+highly qualified.” Finally, Kazarian submitted three letters
+from colleagues at GCC praising his hard work and active
+participation at GCC.
+Kazarian also noted that he had authored a self-published
+textbook, titled “Concepts in Physics: Classical Mechanics.”
+According to one of his colleagues at GCC, the book “is certain
+to be required reading in many secondary schools, colleges
+and universities throughout the country.” Kazarian,
+however, presented no evidence that the book was actually
+used in any class. Kazarian also submitted two scholarly articles
+where the authors acknowledged him for his useful scientific
+discussions. Kazarian also submitted his resume, which
+listed six publications in Astrophysics that he had authored or
+co-authored, as well as one e-print published in the public
+web archives of the Los Alamos National Laboratory.
+Finally, Kazarian presented evidence of his Science Lecture
+Series at GCC. His resume also listed lectures at the 17th and
+20th Pacific Coast Gravity Meetings, the Conference on
+Strong Gravitational Fields at UC Santa Barbara, the 8th
+International Symposium on the Science and Technology of
+3434 KAZARIAN v. USCIS
+Light Sources, and the Foundations of Gravitation and Cosmology,
+International School-Seminar.
+In August 2005, the USCIS denied the petition. Kazarian
+appealed the denial to the Administrative Appeals Office
+(“AAO”). The AAO dismissed the appeal, finding that
+Kazarian failed to satisfy any of the evidentiary criteria set
+forth in the relevant “extraordinary ability” visa regulations.
+Having exhausted his administrative remedies, Kazarian filed
+a complaint in the Central District of California. The District
+Court granted the USCIS’s motion for summary judgment,
+and Kazarian timely appealed to this court.
+STANDARD OF REVIEW
+This court “review[s] the entry of summary judgment de
+novo.” Family Inc. v. U.S. Citizenship & Immigration Servs.,
+469 F.3d 1313, 1315 (9th Cir. 2006). “However, the underlying
+agency action may be set aside only if ‘arbitrary, capricious,
+an abuse of discretion, or otherwise not in accordance
+with law.’ ” Id. (quoting 5 U.S.C. § 706(2)(A)). “We have
+held it an abuse of discretion for the Service to act if there is
+no evidence to support the decision or if the decision was
+based on an improper understanding of the law.” Tongatapu
+Woodcraft Hawaii Ltd. v. Feldman, 736 F.2d 1305, 1308 (9th
+Cir. 1984) (internal quotations omitted).
+“In circumstances where an agency errs, we may evaluate
+whether such an error was harmless.” Gifford Pinchot Task
+Force v. U.S. Fish and Wildlife Serv., 378 F.3d 1059, 1071
+(9th Cir. 2004); see 5 U.S.C. § 706. “In the context of agency
+review, the role of harmless error is constrained. The doctrine
+may be employed only ‘when a mistake of the administrative
+body is one that clearly had no bearing on the procedure used
+or the substance of decision reached.’ ” Gifford Pinchot, 378
+F.3d at 1071 (citing Buschmann v. Schweiker, 676 F.2d 352,
+358 (9th Cir. 1982)) (emphasis added by the Gifford Pinchot
+court). “We will not usually overturn agency action unless
+KAZARIAN v. USCIS 3435
+there is a showing of prejudice to the petitioner.” Safari Aviation
+Inc. v. Garvey, 300 F.3d 1144, 1150 (9th Cir. 2002).
+DISCUSSION
+A. THE “EXTRAORDINARY ABILITY” VISA
+[1] Pursuant to 8 U.S.C. § 1153(b)(1)(A), aliens may apply
+for a visa on the basis of “extraordinary ability.” An alien can
+prove an extraordinary ability in one of two ways. The first
+is “evidence of a one-time achievement (that is, a major, international
+recognized award).” 8 C.F.R. § 204.5(h)(3). Receipt
+of the Nobel prize is the quintessential example of a major
+award. H.R. Rep. No. 101-723(I & II) (1990), reprinted in
+1990 U.S.C.C.A.N. 6710, 6739. Kazarian concedes that he
+has won no such prize.
+The second way to prove extraordinary ability is to provide
+evidence of at least three of the following:
+(i) Documentation of the alien’s receipt of lesser
+nationally or internationally recognized prizes or
+awards for excellence in the field of endeavor;
+(ii) Documentation of the alien’s membership in
+associations in the field for which classification is
+sought, which require outstanding achievements of
+their members, as judged by recognized national or
+international experts in their disciplines or fields;
+(iii) Published material about the alien in professional
+or major trade publications or other major
+media, relating to the alien’s work in the field for
+which classification is sought. Such evidence shall
+include the title, date, and author of the material, and
+any necessary translation;
+(iv) Evidence of the alien’s participation, either individually
+or on a panel, as a judge of the work of oth-
+3436 KAZARIAN v. USCIS
+ers in the same or an allied field of specification for
+which classification is sought;
+(v) Evidence of the alien’s original scientific, scholarly,
+artistic, athletic, or business-related contributions
+of major significance in the field;
+(vi) Evidence of the alien’s authorship of scholarly
+articles in the field, in professional or major trade
+publications or other major media;
+(vii) Evidence of the display of the alien’s work in
+the field at artistic exhibitions or showcases;
+(viii) Evidence that the alien has performed in a
+leading or critical role for organizations or establishments
+that have a distinguished reputation;
+(ix) Evidence that the alien has commanded a high
+salary or other significantly high remuneration for
+services, in relation to others in the field; or
+(x) Evidence of commercial successes in the performing
+arts, as shown by box office receipts or
+record, cassette, compact disk, or video sales.
+8 C.F.R. § 204.5(h)(3). If a petitioner has submitted the requisite
+evidence, USCIS determines whether the evidence demonstrates
+both a “level of expertise indicating that the
+individual is one of that small percentage who have risen to
+the very top of the[ir] field of endeavor,” 8 C.F.R.
+§ 204.5(h)(2), and “that the alien has sustained national or
+international acclaim and that his or her achievements have
+been recognized in the field of expertise.” 8 C.F.R.
+§ 204.5(h)(3). Only aliens whose achievements have garnered
+“sustained national or international acclaim” are eligible for
+an “extraordinary ability” visa. 8 U.S.C. § 1153(b)(1)(A)(i).
+KAZARIAN v. USCIS 3437
+The “extraordinary ability” visa can be better understood in
+context. Under the Immigration Act of 1990, thousands of
+employment-based visas were created according to three
+employment preferences. Pub. L. No. 101-649, 101 Stat.
+4978. “Aliens with extraordinary ability” are “priority workers”
+and have the first preference. 8 U.S.C. § 1153(b)(1).
+“Extraordinary ability” is distinct from “exceptional ability,”
+however, which receives second preference. Compare id.
+§ 1153(b)(1)(A) (emphasis added), with id. § 1153(b)(2)
+(emphasis added).1 To qualify for the “exceptional ability”
+visa, a petitioner must make a lesser showing of ability, and
+need only show three of the following:
+(A) An official academic record showing that the
+alien has a degree, diploma, certificate, or similar
+award from a college, university, school, or other
+institution of learning relating to the area of exceptional
+ability;
+(B) Evidence in the form of letter(s) from current or
+former employer(s) showing that the alien has at
+least ten years of full-time experience in the occupation
+for which he or she is being sought;
+(C) A license to practice the profession or certification
+for a particular profession or occupation;
+(D) Evidence that the alien has commanded a salary,
+or other remuneration for services, which demonstrates
+exceptional ability;
+(E) Evidence of membership in professional associations;
+or
+1Skilled workers, professionals, and “other workers” make up the third
+preference. Id. § 1153(b)(3).
+3438 KAZARIAN v. USCIS
+(F) Evidence of recognition for achievements and
+significant contributions to the industry or field by
+peers, governmental entities, or professional or business
+organizations.
+8 C.F.R. § 204.5(k)(3)(ii).
+[2] To qualify for an “exceptional ability” visa, however,
+the alien must also provide evidence that his services are
+sought by a United States employer. Id. The “extraordinary
+ability” visa thus has considerable advantages. Unlike the
+“exceptional ability” visa petition, the “extraordinary ability”
+petition is not dependent on an actual offer for employment
+in the United States, and is exempt from the time-consuming
+labor certification process, which requires that employers first
+test the marketplace for existing qualified domestic workers.
+Compare id. § 204.5(h)(3)(5), with id. § 204.5(k)(4).
+[3] Interpretation of the statutory and regulatory requirements
+for the “extraordinary ability” visa presents a question
+of first impression for this court. The scant caselaw indicates
+that “[t]he regulations regarding this preference classification
+are extremely restrictive.” Lee v. Ziglar, 237 F. Supp.2d 914,
+918 (N.D. Ill.2002) (finding that “arguably one of the most
+famous baseball players in Korean history” did not qualify for
+the visa as a baseball coach for the Chicago White Sox
+because his acclaim was limited to his skills as a player and
+not as a coach); cf. Grimson v. INS, 934 F.Supp. 965, 969
+(N.D. Ill. 1996) (finding denial arbitrary and capricious where
+NHL hockey enforcer was one of the top three players in the
+world and agency improperly discounted the importance of
+the enforcer position); Muni v. INS, 891 F.Supp. 440 (N.D. Ill.
+1995) (finding the agency improperly discounted evidence for
+an NHL hockey player who won the Stanley Cup three times,
+won “most underrated defenseman,” was paid more than the
+average NHL player, submitted numerous articles establishing
+his stature in the hockey world, and provided affidavits from
+eight renowned hockey players stating that he was highly
+KAZARIAN v. USCIS 3439
+regarded); Buletini v. INS, 860 F.Supp. 1222 (E.D. Mich.
+1994) (finding denial was arbitrary and capricious where
+Albanian physician won a national award, published a medical
+dictionary and numerous articles, was responsible for general
+health projects, and served as an adjunct professor);
+Matter of Price, 20 I. & N. Dec. 953, 955-56 (BIA 1994)
+(granting the visa petition to a professional golfer who won
+the 1983 World Series of Golf and the 1991 Canadian Open,
+ranked 10th in the 1989 PGA Tour, collected $714,389 in
+1991, provided numerous affidavits from well-known and celebrated
+golfers, and received widespread major media coverage).
+B. APPLICATION TO KAZARIAN
+The AAO found that Kazarian did not meet any of the regulatory
+criteria. Only four of the ten are at issue in this appeal.
+We find that the AAO erred in its consideration of two of
+these issues.
+1. Authorship of Scholarly Articles in the Field of
+Endeavor
+Pursuant to 8 C.F.R. § 204.5(h)(3)(vi), Kazarian submitted
+proof of his six articles in Astrophysics and his e-print in the
+Los Alamos National Laboratory archives, but did not demonstrate
+that other scholars had cited to his publications. The
+AAO held that without evidence of such citations, Kazarian’s
+articles did not meet the regulatory definition of evidence,
+because “publication of scholarly articles is not automatically
+evidence of sustained acclaim” and “we must consider the
+research community’s reaction to these articles.”
+[4] The AAO’s conclusion rests on an improper understanding
+of 8 C.F.R. § 204.5(h)(3)(vi). Nothing in that provision
+requires a petitioner to demonstrate the research
+community’s reaction to his published articles before those
+articles can be considered as evidence, and neither USCIS nor
+3440 KAZARIAN v. USCIS
+an AAO may unilaterally impose novel substantive or evidentiary
+requirements beyond those set forth at 8 C.F.R. § 204.5.
+Love Korean Church v. Chertoff, 549 F.3d 749, 758 (9th Cir.
+2008). While other authors’ citations (or a lack thereof) might
+be relevant to the final merits determination of whether a petitioner
+is at the very top of his or her field of endeavor, they
+are not relevant to the antecedent procedural question of
+whether the petitioner has provided at least three types of evidence.
+8 C.F.R. § 204.5(h)(3). “If the agency intended to
+impose [peer citations] as a threshold requirement, we have
+little doubt that such records would have been included
+among the detailed substantive and evidentiary requirements
+set forth at 8 C.F.R. § 204.5[(h)(3)(i)-(x)].” Love Korean
+Church, 549 F.3d at 758.
+2. Participation as a Judge of the Work of Others
+Pursuant to 8 C.F.R. § 204.5(h)(3)(iv), Kazarian submitted
+proof that he was a judge of graduate-level diploma works at
+Yerevan State University. The AAO held that “reviewing
+‘diploma works’ for fellow students at one’s own university
+is not persuasive evidence of acclaim beyond that university,”
+and that absent “evidence that the petitioner served as an
+external dissertation reviewer for a university with which he
+is not otherwise affiliated,” Kazarian’s submission did not
+meet the regulatory definition of evidence.
+[5] The AAO’s conclusion rests on an improper understanding
+of 8 C.F.R. § 204.5(h)(3)(iv). Nothing in that provision
+suggests that whether judging university dissertations
+counts as evidence turns on which university the judge is
+affiliated with. Again, while the AAO’s analysis might be relevant
+to a final merits determination, the AAO may not unilaterally
+impose a novel evidentiary requirement. Love
+Korean Church, 549 F.3d at 758.
+KAZARIAN v. USCIS 3441
+3. Evidence of Original Scientific or Scholarly
+Contributions of Major Significance in the Field of
+Endeavor
+[6] Pursuant to 8 C.F.R. § 204.5(h)(3)(v), Kazarian submitted
+letters from physics professors attesting to his contributions
+in the field. The AAO found that his contributions were
+not major, and thus did not meet the regulatory definition of
+evidence. The AAO’s analysis here is consistent with the relevant
+regulatory language, and the AAO’s determination that
+Kazarian did not submit material that met the regulatory definition
+of evidence set forth at 8 C.F.R. § 204.5(h)(3)(v) is neither
+arbitrary, capricious, nor an abuse of discretion.
+4. Display of the Alien’s Work at Artistic Exhibitions or
+Showcases
+[7] Pursuant to 8 C.F.R. § 204.5(h)(3)(vii), Kazarian submitted
+proof that he had self-published a textbook, had given
+lectures at a community college, and had made presentations
+at conferences. The AAO found that none of these activities
+were displays at artistic exhibitions or showcases. The AAO’s
+analysis here is again consistent with the relevant regulatory
+language, and the AAO’s determination that Kazarian did not
+submit evidence as defined at 8 C.F.R. § 204.5(h)(3)(vii) is
+neither arbitrary, capricious, nor an abuse of discretion.
+C. HARMLESSNESS
+Having found that the AAO erred by unilaterally introducing
+new evidentiary requirements into 8 C.F.R.
+§ 204.5(h)(3)(iv) and (vi), we must now determine whether
+these errors were prejudicial. 5 U.S.C. § 706; Tucson Herpetological
+Soc. v. Salazar, 566 F.3d 870, 879-80 (9th Cir.
+2009). They were not.
+The AAO held that Kazarian provided zero of the ten types
+of evidence set forth at 8 C.F.R. § 204.5(h)(3)(i)-(x). The
+3442 KAZARIAN v. USCIS
+AAO should have held that Kazarian presented two types of
+evidence. The regulation requires three types of evidence. 8
+C.F.R. § 204.5(h)(3).
+[8] Whether an applicant for an extraordinary visa presents
+two types of evidence or none, the proper procedure is to
+count the types of evidence provided (which the AAO did),
+and the proper conclusion is that the applicant has failed to
+satisfy the regulatory requirement of three types of evidence
+(as the AAO concluded). 8 C.F.R. § 204.5(h)(3). Here,
+although the AAO committed clear legal error, that error
+“clearly had no bearing” on either “the procedure used or the
+substance of decision reached.” Gifford Pinchot, 378 F.3d at
+1071 (quotations omitted).
+CONCLUSION
+[9] Although Kazarian appears to be a well-respected,
+promising physicist, who may well have been able to qualify
+for an “exceptional ability” visa, he instead applied for an
+“extraordinary ability” visa, and presented only two of the
+types of evidence set forth at 8 C.F.R. § 204.5(h)(3)(i)-(x),
+and the “extraordinary ability” visa regulations require three.
+The AAO’s conclusion that Kazarian presented zero types of
+evidence was in error, but the error was harmless. Kazarian
+failed to establish his eligibility for an “extraordinary ability”
+visa, and the District Court correctly granted USCIS’ summary
+judgment motion.
+AFFIRMED.
+PREGERSON, Circuit Judge, concurring:
+I am pleased to concur in Judge Nelson’s opinion. I write
+separately, however, to emphasize the injustice perpetrated by
+our immigration laws and system in this case. Dr. Poghos
+KAZARIAN v. USCIS 3443
+Kazarian received his Ph.D. in the field of theoretical physics
+from Yerevan State University and, since arriving in the
+United States, has continued to research and teach in this
+challenging field. Starting around 2000, Dr. Kazarian participated
+in a research group headed by Dr. Kip Thorne at the
+California Institute of Technology. Dr. Thorne, among others,
+submitted a letter in support of Dr. Kazarian’s visa application.
+Dr. Kazarian volunteers his teaching services at Glendale
+Community College and has authored and published his own
+physics textbook. Dr. Kazarian has received strong words of
+praise from colleagues at Yerevan State University, Glendale
+Community College, and the California Institute of Technology.
+Dr. Kazarian’s contributions in the United States have
+been undoubtedly valuable. Forcing Dr. Kazarian to depart
+from our country would be undoubtedly wasteful and make
+one think that there is something haywire in our system.
+Although, as the opinion points out, Dr. Kazarian did not submit
+three of the types of evidence required for the “extraordinary
+visa,” he would have been an excellent candidate for an
+“exceptional ability” visa. Indeed, it was likely the error of an
+ineffective lawyer that led Kazarian to apply for the wrong
+visa in the first place.1
+1At oral argument, Dr. Kazarian’s current counsel represented to the
+court that the attorney who started Dr. Kazarian on the path of applying
+for this “extraordinary ability” visa was George Verdin. Verdin is listed
+as being indefinitely suspended from practice before the Immigration Service,
+the Immigration Courts, and the Board of Immigration Appeals.
+Executive Office for Immigration Review, Office of General Counsel, List
+of Currently Disciplined Practitioners (Aug. 11, 2009),
+http://www.usdoj.gov/eoir/profcond/chart.htm. Verdin has also been disbarred
+by the Supreme Court of Hawai’i. Office of Disciplinary Counsel
+v. Verdin, No. 22349 (Haw. Sept. 27, 2001). It is distressing how many
+good people—including the highly educated and the minimally educated
+—fall prey to disreputable lawyers known to the immigration system.
+3444 KAZARIAN v. USCIS
