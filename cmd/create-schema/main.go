@@ -62,6 +62,9 @@ CREATE TABLE legal_chunks (
     -- Criterion/Issue identification (unified across types)
     criterion_tag VARCHAR(100),
     
+    -- Visa type (O-1 for MVP, expandable for future visa types)
+    visa_type VARCHAR(20) NOT NULL DEFAULT 'O-1' CHECK (visa_type IN ('O-1', 'NIW', 'EB-1A')),
+    
     -- Legal standards and tests (unified across types)
     legal_standard VARCHAR(255),
     legal_test TEXT,
@@ -89,7 +92,19 @@ CREATE TABLE legal_chunks (
     updated_at TIMESTAMP DEFAULT NOW(),
     
     -- === CONSTRAINTS ===
-    CONSTRAINT chunk_order_unique UNIQUE (source_document, chunk_index)
+    CONSTRAINT chunk_order_unique UNIQUE (source_document, chunk_index),
+    
+    -- Ensure only valid O-1 criteria tags (with future-proofing for NIW tags)
+    CONSTRAINT check_o1_criteria CHECK (
+        criterion_tag IS NULL OR 
+        criterion_tag IN (
+            'awards', 'membership', 'media_coverage', 'judging', 
+            'original_contributions', 'authorship', 'exhibitions', 
+            'critical_role', 'high_salary', 'commercial_success',
+            -- Keep these for future-proofing but ignore them in queries for now
+            'niw_substantial_merit', 'niw_national_importance', 'niw_well_positioned'
+        )
+    )
 );`
 
 	_, err = pool.Exec(ctx, schemaSQL)
@@ -158,6 +173,16 @@ WITH (m = 16, ef_construction = 64);`,
 			sql: `CREATE INDEX idx_appeal_winning_criterion ON legal_chunks(source_type, criterion_tag, is_winning_argument) 
     WHERE source_type = 'appeal_decision' AND is_winning_argument = true;`,
 		},
+		{
+			name: "Metrics: citation count for appeal decisions",
+			sql: `CREATE INDEX idx_metadata_metrics_citations 
+ON legal_chunks ((metadata->'metrics'->>'citation_count')::int)
+WHERE source_type = 'appeal_decision';`,
+		},
+		{
+			name: "Visa type filtering",
+			sql:  "CREATE INDEX idx_visa_type ON legal_chunks(visa_type);",
+		},
 	}
 
 	for _, idx := range indexes {
@@ -171,6 +196,5 @@ WITH (m = 16, ef_construction = 64);`,
 
 	fmt.Println("\n✅ Database schema created successfully!")
 	fmt.Println("   Table: legal_chunks")
-	fmt.Println("   Indexes: 13 indexes created")
+	fmt.Println("   Indexes: 15 indexes created")
 }
-

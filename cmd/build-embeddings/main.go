@@ -142,6 +142,10 @@ func main() {
 
 		// Determine document type
 		docType := determineDocumentType(filename, string(content))
+		if docType == "unknown" {
+			log.Printf("   ⚠️  Warning: Could not determine document type, skipping %s", filename)
+			continue
+		}
 		log.Printf("   Type: %s", docType)
 
 		// Check if already processed
@@ -198,8 +202,7 @@ func determineDocumentType(filename, content string) string {
 	if strings.Contains(filenameLower, "appeal") {
 		return "appeal_decision"
 	}
-	if strings.Contains(filenameLower, "case") || strings.Contains(filenameLower, "kazarian") ||
-		strings.Contains(filenameLower, "dhanasar") || strings.Contains(filenameLower, "chawath") {
+	if strings.Contains(filenameLower, "case") || strings.Contains(filenameLower, "kazarian") || strings.Contains(filenameLower, "chawath") {
 		return "precedent_case"
 	}
 
@@ -238,6 +241,166 @@ func chunkAndExtractMetadata(apiKey, filename, docType, content string) ([]Chunk
 }
 
 func createChunkingPrompt(filename, docType, content string) string {
+	switch docType {
+	case "regulation":
+		return createRegulationPrompt(filename, content)
+	case "appeal_decision":
+		return createAppealPrompt(filename, content)
+	case "precedent_case":
+		return createPrecedentPrompt(filename, content)
+	default:
+		return createGenericPrompt(filename, docType, content)
+	}
+}
+
+func createAppealPrompt(filename, content string) string {
+	return fmt.Sprintf(`You are an expert immigration attorney specializing in O-1A visas.
+    
+TASK: Extract only the WINNING ARGUMENTS from this AAO Appeal Decision.
+CONTEXT: This is a "Sustained" (Approved) decision.
+
+INSTRUCTIONS:
+1. Identify which of the 10 O-1 criteria are discussed (e.g., "Judging", "Original Contributions").
+2. For each criterion, extract the paragraph where the AAO explains WHY the evidence was sufficient.
+3. IGNORE the Director's denial arguments.
+4. EXTRACT METRICS if present (e.g., citation counts, salary amounts, years of experience).
+
+OUTPUT JSON SCHEMA:
+[
+  {
+    "chunk_index": 0,
+    "chunk_text": "The AAO finds that the beneficiary's 50 citations...",
+    "regulatory_citation": [],
+    "case_citation": null,
+    "appeal_citation": "Extract full appeal citation from document",
+    "criterion_tag": "original_contributions",
+    "legal_standard": null,
+    "legal_test": null,
+    "metadata": {
+      "decision_result": "Sustained",
+      "metrics": {
+        "citation_count": 50,
+        "salary_amount": 150000,
+        "years_experience": 10
+      }
+    },
+    "is_winning_argument": true,
+    "section_level": null,
+    "is_holding": false
+  }
+]
+
+IMPORTANT: In the metadata.metrics object, all numeric values MUST be integers (not strings):
+- "citation_count": extract as integer from text like "50 citations" → 50
+- "salary_amount": extract as integer from text like "$150,000" → 150000 (no currency symbols, no commas)
+- "years_experience": extract as integer from text like "10 years" → 10
+Only include metrics that are explicitly mentioned in the text. If a metric is not present, omit it from the metrics object.
+
+CRITERION_TAG must be one of: awards, membership, media_coverage, judging, original_contributions, authorship, exhibitions, critical_role, high_salary, commercial_success (or null if not applicable).
+
+Chunking Rules:
+- Extract complete winning arguments (500-1000 words)
+- 10-15%% overlap between chunks for context
+- EXCLUDE Director's denial arguments completely
+- Focus on paragraphs where AAO explains WHY evidence was sufficient
+
+DOCUMENT CONTENT:
+%s
+
+Return ONLY valid JSON, no markdown, no explanations.`, content)
+}
+
+func createRegulationPrompt(filename, content string) string {
+	return fmt.Sprintf(`You are a legal document processor. Your task is to chunk this regulation document and extract metadata according to the unified schema.
+
+Document Information:
+- Filename: %s
+- Document Type: regulation
+- Content Length: %d characters
+
+Document Content:
+%s
+
+Task: Chunk this regulation document and extract metadata for each chunk according to the unified metadata schema.
+
+For each chunk, extract:
+1. chunk_text: The actual text content (200-800 words), atomic legal rules, no overlap
+2. regulatory_citation: Array of CFR citations (e.g., ["8 CFR § 204.5(h)(3)(vi)"])
+3. case_citation: null
+4. appeal_citation: null
+5. criterion_tag: One of: awards, membership, media_coverage, judging, original_contributions, authorship, exhibitions, critical_role, high_salary, commercial_success (or null)
+6. legal_standard: Name of legal test if applicable (e.g., "Kazarian Two-Step", "Final Merits Determination")
+7. legal_test: Full name of legal test if applicable
+8. metadata: JSON object with type-specific fields
+9. is_winning_argument: false
+10. section_level: 1-3 for regulations
+11. is_holding: false
+
+Return your response as a JSON array of chunk objects. Each chunk object should have:
+{
+  "chunk_index": 0,
+  "chunk_text": "...",
+  "regulatory_citation": ["8 CFR § 204.5(h)(3)(vi)"],
+  "case_citation": null,
+  "appeal_citation": null,
+  "criterion_tag": "authorship",
+  "legal_standard": null,
+  "legal_test": null,
+  "metadata": {},
+  "is_winning_argument": false,
+  "section_level": 3,
+  "is_holding": false
+}
+
+Return ONLY valid JSON, no markdown, no explanations.`, filename, len(content), content)
+}
+
+func createPrecedentPrompt(filename, content string) string {
+	return fmt.Sprintf(`You are a legal document processor. Your task is to chunk this precedent case document and extract metadata according to the unified schema.
+
+Document Information:
+- Filename: %s
+- Document Type: precedent_case
+- Content Length: %d characters
+
+Document Content:
+%s
+
+Task: Chunk this precedent case document and extract metadata for each chunk according to the unified metadata schema.
+
+For each chunk, extract:
+1. chunk_text: The actual text content (300-1000 words), complete legal test definitions, 10-15%% overlap
+2. regulatory_citation: Array of CFR citations if applicable
+3. case_citation: Full case citation
+4. appeal_citation: null
+5. criterion_tag: One of: awards, membership, media_coverage, judging, original_contributions, authorship, exhibitions, critical_role, high_salary, commercial_success (or null)
+6. legal_standard: Name of legal test (e.g., "Kazarian Two-Step", "Final Merits Determination")
+7. legal_test: Full name of legal test
+8. metadata: JSON object with type-specific fields
+9. is_winning_argument: false
+10. section_level: null
+11. is_holding: true if chunk contains binding legal rule
+
+Return your response as a JSON array of chunk objects. Each chunk object should have:
+{
+  "chunk_index": 0,
+  "chunk_text": "...",
+  "regulatory_citation": [],
+  "case_citation": "Matter of Kazarian",
+  "appeal_citation": null,
+  "criterion_tag": null,
+  "legal_standard": "Kazarian Two-Step",
+  "legal_test": "Kazarian Two-Step Analysis",
+  "metadata": {},
+  "is_winning_argument": false,
+  "section_level": null,
+  "is_holding": true
+}
+
+Return ONLY valid JSON, no markdown, no explanations.`, filename, len(content), content)
+}
+
+func createGenericPrompt(filename, docType, content string) string {
 	return fmt.Sprintf(`You are a legal document processor. Your task is to chunk this document and extract metadata according to the unified schema.
 
 Document Information:
@@ -251,36 +414,31 @@ Document Content:
 Task: Chunk this document and extract metadata for each chunk according to the unified metadata schema.
 
 For each chunk, extract:
-1. chunk_text: The actual text content (200-1000 words depending on document type)
-2. regulatory_citation: Array of CFR citations (e.g., ["8 CFR § 204.5(h)(3)(vi)"])
+1. chunk_text: The actual text content (200-1000 words)
+2. regulatory_citation: Array of CFR citations if applicable
 3. case_citation: Full case citation if applicable
 4. appeal_citation: Full appeal citation if applicable
 5. criterion_tag: One of: awards, membership, media_coverage, judging, original_contributions, authorship, exhibitions, critical_role, high_salary, commercial_success (or null)
-6. legal_standard: Name of legal test (e.g., "Kazarian Two-Step", "Final Merits Determination")
-7. legal_test: Full name of legal test
-8. metadata: JSON object with type-specific fields (see schema)
-9. is_winning_argument: true for appeal decisions (only winning arguments), false otherwise
-10. section_level: 1-3 for regulations, null otherwise
-11. is_holding: true if chunk contains binding legal rule (for cases)
-
-Chunking Rules:
-- Regulations: Atomic legal rules (200-800 words), no overlap
-- Precedent Cases: Complete legal test definitions (300-1000 words), 10-15%% overlap
-- Appeal Decisions: Complete winning arguments (500-1000 words), 10-15%% overlap, exclude Director denials
+6. legal_standard: Name of legal test if applicable
+7. legal_test: Full name of legal test if applicable
+8. metadata: JSON object with type-specific fields
+9. is_winning_argument: false
+10. section_level: null
+11. is_holding: false if applicable
 
 Return your response as a JSON array of chunk objects. Each chunk object should have:
 {
   "chunk_index": 0,
   "chunk_text": "...",
-  "regulatory_citation": ["8 CFR § 204.5(h)(3)(vi)"],
+  "regulatory_citation": [],
   "case_citation": null,
   "appeal_citation": null,
-  "criterion_tag": "authorship",
-  "legal_standard": "Kazarian Two-Step",
+  "criterion_tag": null,
+  "legal_standard": null,
   "legal_test": null,
-  "metadata": {...},
+  "metadata": {},
   "is_winning_argument": false,
-  "section_level": 3,
+  "section_level": null,
   "is_holding": false
 }
 
@@ -349,6 +507,44 @@ func callGeminiAPI(apiKey, prompt string) (string, error) {
 	}
 
 	return responseText.String(), nil
+}
+
+// normalizeCriterionTag normalizes and validates a criterion tag against the allowed values
+func normalizeCriterionTag(tag string) string {
+	if tag == "" {
+		return ""
+	}
+
+	// Normalize: lowercase and replace spaces/hyphens with underscores
+	normalized := strings.ToLower(tag)
+	normalized = strings.ReplaceAll(normalized, " ", "_")
+	normalized = strings.ReplaceAll(normalized, "-", "_")
+	normalized = strings.TrimSpace(normalized)
+
+	// Valid O-1 criteria tags (must match database constraint exactly)
+	validTags := map[string]bool{
+		"awards":                 true,
+		"membership":             true,
+		"media_coverage":         true,
+		"judging":                true,
+		"original_contributions": true,
+		"authorship":             true,
+		"exhibitions":            true,
+		"critical_role":          true,
+		"high_salary":            true,
+		"commercial_success":     true,
+		// NIW tags for future-proofing
+		"niw_substantial_merit":   true,
+		"niw_national_importance": true,
+		"niw_well_positioned":     true,
+	}
+
+	if validTags[normalized] {
+		return normalized
+	}
+
+	// If not valid, return empty string (will be stored as NULL)
+	return ""
 }
 
 func parseChunkingResponse(response, filename, docType string) ([]Chunk, error) {
@@ -420,7 +616,7 @@ func parseChunkingResponse(response, filename, docType string) ([]Chunk, error) 
 		}
 
 		if tag, ok := data["criterion_tag"].(string); ok && tag != "" {
-			chunk.CriterionTag = tag
+			chunk.CriterionTag = normalizeCriterionTag(tag)
 		}
 
 		if std, ok := data["legal_standard"].(string); ok && std != "" {
@@ -520,63 +716,80 @@ func buildEmbeddingInput(chunk Chunk) string {
 }
 
 func generateBatchEmbeddings(apiKey string, inputs []string, chunks []Chunk) error {
-	requests := make([]EmbeddingRequest, len(inputs))
-	for i, input := range inputs {
-		requests[i] = EmbeddingRequest{
-			Model: "models/gemini-embedding-001",
-			Content: ContentInput{
-				Parts: []PartInput{{Text: input}},
-			},
-			TaskType:             "FACT_VERIFICATION",
-			OutputDimensionality: 768,
+	const batchSize = 100 // Google's API limit
+
+	for i := 0; i < len(inputs); i += batchSize {
+		end := i + batchSize
+		if end > len(inputs) {
+			end = len(inputs)
 		}
-	}
 
-	reqBody := BatchEmbeddingRequest{Requests: requests}
-	jsonData, err := json.Marshal(reqBody)
-	if err != nil {
-		return fmt.Errorf("failed to marshal batch request: %w", err)
-	}
+		batchInputs := inputs[i:end]
+		batchChunks := chunks[i:end]
 
-	req, err := http.NewRequest("POST", batchAPI, bytes.NewBuffer(jsonData))
-	if err != nil {
-		return fmt.Errorf("failed to create request: %w", err)
-	}
-
-	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("x-goog-api-key", apiKey)
-
-	client := &http.Client{Timeout: 300 * time.Second}
-	resp, err := client.Do(req)
-	if err != nil {
-		return fmt.Errorf("failed to send request: %w", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		body, _ := io.ReadAll(resp.Body)
-		return fmt.Errorf("API error: %d - %s", resp.StatusCode, string(body))
-	}
-
-	bodyBytes, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return fmt.Errorf("failed to read response body: %w", err)
-	}
-
-	var apiResp BatchEmbeddingResponse
-	if err := json.Unmarshal(bodyBytes, &apiResp); err != nil {
-		return fmt.Errorf("failed to decode response: %w", err)
-	}
-
-	if len(apiResp.Embeddings) != len(chunks) {
-		return fmt.Errorf("mismatch: got %d embeddings for %d chunks", len(apiResp.Embeddings), len(chunks))
-	}
-
-	for i := range chunks {
-		if len(apiResp.Embeddings[i].Values) == 0 {
-			return fmt.Errorf("chunk %d has empty embedding", i)
+		requests := make([]EmbeddingRequest, len(batchInputs))
+		for j, input := range batchInputs {
+			requests[j] = EmbeddingRequest{
+				Model: "models/gemini-embedding-001",
+				Content: ContentInput{
+					Parts: []PartInput{{Text: input}},
+				},
+				TaskType:             "RETRIEVAL_DOCUMENT",
+				OutputDimensionality: 768,
+			}
 		}
-		chunks[i].Embedding = apiResp.Embeddings[i].Values
+
+		reqBody := BatchEmbeddingRequest{Requests: requests}
+		jsonData, err := json.Marshal(reqBody)
+		if err != nil {
+			return fmt.Errorf("failed to marshal batch request: %w", err)
+		}
+
+		req, err := http.NewRequest("POST", batchAPI, bytes.NewBuffer(jsonData))
+		if err != nil {
+			return fmt.Errorf("failed to create request: %w", err)
+		}
+
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("x-goog-api-key", apiKey)
+
+		client := &http.Client{Timeout: 300 * time.Second}
+		resp, err := client.Do(req)
+		if err != nil {
+			return fmt.Errorf("failed to send request: %w", err)
+		}
+		defer resp.Body.Close()
+
+		if resp.StatusCode != http.StatusOK {
+			body, _ := io.ReadAll(resp.Body)
+			return fmt.Errorf("API error: %d - %s", resp.StatusCode, string(body))
+		}
+
+		bodyBytes, err := io.ReadAll(resp.Body)
+		if err != nil {
+			return fmt.Errorf("failed to read response body: %w", err)
+		}
+
+		var apiResp BatchEmbeddingResponse
+		if err := json.Unmarshal(bodyBytes, &apiResp); err != nil {
+			return fmt.Errorf("failed to decode response: %w", err)
+		}
+
+		if len(apiResp.Embeddings) != len(batchChunks) {
+			return fmt.Errorf("mismatch: got %d embeddings for %d chunks in batch", len(apiResp.Embeddings), len(batchChunks))
+		}
+
+		for k := range batchChunks {
+			if len(apiResp.Embeddings[k].Values) == 0 {
+				return fmt.Errorf("chunk %d has empty embedding", i+k)
+			}
+			batchChunks[k].Embedding = apiResp.Embeddings[k].Values
+		}
+
+		// Brief sleep to avoid rate limits
+		if end < len(inputs) {
+			time.Sleep(100 * time.Millisecond)
+		}
 	}
 
 	return nil
@@ -589,7 +802,7 @@ func generateSingleEmbeddings(apiKey string, inputs []string, chunks []Chunk) er
 			Content: ContentInput{
 				Parts: []PartInput{{Text: input}},
 			},
-			TaskType:             "FACT_VERIFICATION",
+			TaskType:             "RETRIEVAL_DOCUMENT",
 			OutputDimensionality: 768,
 		}
 
@@ -667,6 +880,7 @@ func storeChunks(ctx context.Context, pool *pgxpool.Pool, chunks []Chunk) error 
 
 		vectorValue := formatVector(chunk.Embedding)
 
+		// Use NULLIF to convert empty strings to NULL for fields with check constraints
 		query := `
 		INSERT INTO legal_chunks (
 			id, source_type, source_document, chunk_index, chunk_text,
@@ -674,7 +888,9 @@ func storeChunks(ctx context.Context, pool *pgxpool.Pool, chunks []Chunk) error 
 			criterion_tag, legal_standard, legal_test, metadata,
 			is_winning_argument, section_level, parent_section_id, is_holding, embedding
 		) VALUES (
-			$1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17::vector
+			$1, $2, $3, $4, $5, $6, $7, $8, 
+			NULLIF($9, ''), NULLIF($10, ''), NULLIF($11, ''), $12, 
+			$13, $14, $15, $16, $17::vector
 		)`
 
 		_, err = tx.Exec(ctx, query,
